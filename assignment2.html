@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .calculator {
+            background-color: #333;
+            border-radius: 10px;
+            width: 300px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .calculator input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            background-color: #444;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        .calculator button {
+            width: 60px;
+            height: 60px;
+            margin: 5px;
+            font-size: 20px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            background-color: #555;
+            color: #fff;
+        }
+
+        .calculator button.clear {
+            background-color: #ff6347;
+        }
+
+        .calculator button.equal {
+            background-color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="display" readonly>
+        <button onclick="addToDisplay('7')">7</button>
+        <button onclick="addToDisplay('8')">8</button>
+        <button onclick="addToDisplay('9')">9</button>
+        <button onclick="addToDisplay('+')">+</button>
+        <button onclick="addToDisplay('4')">4</button>
+        <button onclick="addToDisplay('5')">5</button>
+        <button onclick="addToDisplay('6')">6</button>
+        <button onclick="addToDisplay('-')">-</button>
+        <button onclick="addToDisplay('1')">1</button>
+        <button onclick="addToDisplay('2')">2</button>
+        <button onclick="addToDisplay('3')">3</button>
+        <button onclick="addToDisplay('*')">*</button>
+        <button onclick="addToDisplay('0')">0</button>
+        <button onclick="addToDisplay('.')">.</button>
+        <button onclick="clearDisplay()" class="clear">C</button>
+        <button onclick="calculateResult()" class="equal">=</button>
+        <button onclick="addToDisplay('/')">/</button>
+    </div>
+
+    <script>
+        const display = document.getElementById('display');
+
+        function addToDisplay(value) {
+            display.value += value;
+        }
+
+        function clearDisplay() {
+            display.value = '';
+        }
+
+        function calculateResult() {
+            try {
+                display.value = eval(display.value);
+            } catch (error) {
+                display.value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>

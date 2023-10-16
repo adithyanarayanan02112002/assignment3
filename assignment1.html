@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .word-counter {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        textarea {
+            width: 100%;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 16px;
+            resize: vertical;
+        }
+
+        p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="word-counter">
+        <textarea id="text" placeholder="Type your text here..."></textarea>
+        <p><span id="wordCount">0</span> words</p>
+    </div>
+    <script>
+        const textArea = document.getElementById('text');
+        const wordCount = document.getElementById('wordCount');
+
+        textArea.addEventListener('input', function() {
+            const text = textArea.value;
+            const words = text.split(/\s+/).filter(word => word !== '');
+            wordCount.textContent = words.length;
+        });
+    </script>
+</body>
+</html>
